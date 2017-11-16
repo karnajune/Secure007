@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', { title: 'Test MeanStack App' });
+    res.render('index', { title: 'Index Page' });
 });
 
 module.exports = router;

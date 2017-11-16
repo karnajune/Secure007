@@ -1,20 +1,19 @@
 ﻿extends layout
 
-block content
-  - var myOptions=['Report an incident','Browse as Admin','Just visiting site']
-  if title
+block headContent
+
      h2= title
-     p Welcome to #{title}
-  else
-     h2 =Awwh no title!
-  
-  ul
-    each val in myOptions
+     p Welcome to #{title} 
+
+block bodyContent
+  - var myOptions=['Report an incident','Browse as Admin','Just visiting site']
+    ul
+     each val in myOptions
         li=val
 
-  div(style={background:'orange'})
+    div(style={background:'orange'})
 
-  form(style={background:'grey'})(action='', method='POST')
+    form(style={background:'grey'})(action='', method='POST')
         mixin formText(textId,textValue)
             label(for=textId)=textValue
             input(type='text', name=textId, id=textId)
