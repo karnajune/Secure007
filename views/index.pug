@@ -1,0 +1,38 @@
+﻿extends layout
+
+block content
+  - var myOptions=['Report an incident','Browse as Admin','Just visiting site']
+  if title
+     h2= title
+     p Welcome to #{title}
+  else
+     h2 =Awwh no title!
+  
+  ul
+    each val in myOptions
+        li=val
+
+  div(style={background:'orange'})
+
+  form(style={background:'grey'})(action='', method='POST')
+        mixin formText(textId,textValue)
+            label(for=textId)=textValue
+            input(type='text', name=textId, id=textId)
+
+        +formText('firstName','First Name:')
+        br
+        br
+
+        +formText('lastName','Last Name:')
+        br
+        br
+
+        label(for='myList') Occupation:
+        select(id='myList', name='myList')
+            option(value='Designer') Designer
+            option(value='Coder') Coder
+
+        br
+        br
+
+        input(type='button', value='Submit')
